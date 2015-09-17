@@ -1,0 +1,15 @@
+# Provider Page
+twitter_page:  "https://twitter.com/"
+facebook_page: "https://www.facebook.com/"
+
+# ApplicationName
+app_name: "fifth"
+
+# DevelopperTwitterID
+programmer_twitter_id: "hardreggaecafe"
+
+# DesignerTwitterID
+designer_twitter_id: "hardreggaecafe"
+
+# Weekday
+weekday: ["日", "月", "火", "水", "木", "金", "土"]

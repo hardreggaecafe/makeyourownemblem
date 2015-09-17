@@ -1,0 +1,8 @@
+# Twitter OAuth Local Setting
+twitter_key:    "xxx"
+twitter_secret: "xxx"
+
+# Facebook OAuth Setting
+facebook_app_id:     "xxx"
+facebook_app_secret: "xxx"
+
