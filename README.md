@@ -55,9 +55,9 @@ git commit -m "initial"
  gem 'rails_12factor', :group => [:production]
 
 4. Use minimum-omniauth-scaffold For social authentications
- ## Enroll Twitter, Facebook developer account and App
- ## Configure uid, usersecret
- ## rails g minimum:omniauth:scaffold
+ Enroll Twitter, Facebook developer account and App
+ Configure uid, usersecret
+ rails g minimum:omniauth:scaffold
  Here's detail:http://morizyun.github.io/blog/minimum-omniauth-scaffold/
 
 5. Use cloudinary for photo editing
