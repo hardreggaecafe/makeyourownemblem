@@ -1,80 +1,74 @@
 # APP_NAME
+Make Your Own Emblem
 
 APP_DESCRIPTION.
 
-## Local Setting
+## How to Set up
+1. Heroku sign up
+2. Heroku Toolbelt
+3. HomebrewからRuby,Railsインストールまではこちら参照。
+http://qiita.com/shu_0115/items/72305bff6a1318769e0a
+4. Append some usuful Gems, and "bundle"
+gem 'haml-rails'
+gem 'minimum-omniauth-scaffold'
+gem 'action_args'
+gem 'html5_validators'
+gem 'puma'
+gem 'kaminari'
+gem 'rails_config', '~> 0.4.2'
+gem 'tapp'
+gem 'awesome_print'
+gem "exception_notification", "~> 4.0.0.rc1"
+gem 'i18n_generators'
+gem 'cloudinary'
+gem 'config'
 
-### GitHub上でFork
+group :development do
+  gem 'pry-rails'
+  gem "rails-erd"
+  gem 'binding_of_caller'
+  gem "erb2haml"
+  gem 'quiet_assets'
+  gem 'taps'
+  gem 'rvm'
 
-```
-https://github.com/USER_NAME/APP_NAME/
-```
+end
 
-### リポジトリをローカルへ作成
+group :development, :test do
+  gem 'rspec-rails'
+end
 
-```
-cd ~/WORK_DIRECTORY
-git clone git@github.com:YOUR_USER_NAME/APP_NAME.git
-cd APP_NAME
-```
+group :production do
+  gem 'thin'
+  gem 'rails_12factor'
+  gem 'pg'
+  gem 'newrelic_rpm'
+end
 
-### ブランチ作成
+rails new appname
+rails generate controller hello index
+rails g scaffold item name:string price:integer description:textpwd
+git add . -A
+git commit -m "initial"
 
-```
-git checkout -b YOUR_NEW_BRANCH
-```
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3', :group => [:development, :test]
+ gem 'pg', :group => [:production]
+ gem 'rails_12factor', :group => [:production]
 
-### Twitterアプリ登録
+4. Use minimum-omniauth-scaffold For social authentications
+ ## Enroll Twitter, Facebook developer account and App
+ ## Configure uid, usersecret
+ ## rails g minimum:omniauth:scaffold
+ Here's detail:http://morizyun.github.io/blog/minimum-omniauth-scaffold/
 
-<a href="https://dev.twitter.com/apps/new" target="_blank">Twitter Create an application</a>
+5. Use cloudinary for photo editing
+ Uploading image should be on Social call back routine.
+ Editing photo is in view file.
+ Details:http://cloudinary.com/documentation/rails_image_manipulation
 
-```
-Name: [ (アプリケーションの名前) ]
-Description: [ (アプリケーションの説明) ]
-WebSite: [ http://0.0.0.0:3000/ ]
-Callback URL: [ http://0.0.0.0:3000/ ] ※登録しないと動かない
-□ Yes, I agree <= チェック
-CAPTCHA入力後「Create your Twitter application」を押下
-```
+6. Submit git and Migrate Heroku
+git commit -a -m "edit Gemfile3"
+git push heroku master
+heroku run rake db:migrate
 
-### ローカル用Twitterキー設定
-
-Create: config/settings.local.yml
-
-```ruby
-# Twitter OAuth Local Setting
-twitter_key:    "YOUR_CONSUMER_KEY"
-twitter_secret: "YOUR_CONSUMER_SECRET"
-```
-
-※Twitterアプリ登録完了後に表示された「Consumer key」を「YOUR_CONSUMER_KEY」に、「Consumer secret」を「YOUR_CONSUMER_SECRET」にそれぞれ入力
-
-### Rails起動
-
-Gemインストール
-
-```
-bundle install --without production
-```
-
-ローカルDB作成
-
-```
-rake db:setup
-```
-
-ローカルサーバ起動
-
-```
-bundle exec rails s
-```
-
-ページアクセス
-
-```
-http://0.0.0.0:3000/
-```
-
-## Copyright
-
-Copyright (c) 2012 MY_NAME. <a href="http://creativecommons.org/licenses/by-nc-sa/2.1/jp/" target="_blank">CC BY-NC-SA 2.1</a>
