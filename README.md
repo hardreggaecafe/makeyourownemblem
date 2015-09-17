@@ -1,9 +1,7 @@
 # APP_NAME
 Make Your Own Emblem
 
-APP_DESCRIPTION.
-
-## How to Set up
+# How I did it
 1. Heroku sign up
 2. Heroku Toolbelt
 3. HomebrewからRuby,Railsインストールまではこちら参照。
