@@ -13,6 +13,8 @@ gem "exception_notification", "~> 4.0.0.rc1"
 gem 'i18n_generators'
 gem 'cloudinary'
 gem 'config'
+gem 'meta-tags', :require => 'meta_tags'
+gem 'sitemap_generator'
 
 group :development do
   gem 'pry-rails'

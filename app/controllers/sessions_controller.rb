@@ -12,21 +12,21 @@ class SessionsController < ApplicationController
 
 @usr = user
     session[:user_id] = user.id
-    flash[:notice]    = "Your Emblem has established!"
+    flash[:notice]    = "Your Emblem has created!"
 
 logger.debug "Namae:" + user.name
 logger.debug "Gazou:" + user.image
-letter = user.name[0].downcase
-Cloudinary::Uploader.upload('app/assets/images/' + letter + '1.png', :use_filename => true, :unique_filename => false)
 Cloudinary::Uploader.upload(user.image, :public_id => 'e' + user.id.to_s )
 
     unless session[:request_url].blank?
       redirect_to session[:request_url]
+      # redirect_to :action => "showemblem", :id => session[:user_id]
       session[:request_url] = nil
       return
     end
 
-    redirect_to :root and return
+    # redirect_to :root and return
+    redirect_to "/showemblem/" + session[:user_id].to_s and return
   end
 
   # Logout

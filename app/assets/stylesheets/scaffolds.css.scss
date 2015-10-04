@@ -4,7 +4,27 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  #instruction{
+  	background-image: image-url("makeyourownemblem.png");
+	width: 471px;
+	height: 376px;
+  }
+  #linkbannertoemblem{
+  	background-image: image-url("ClickBanner.png");
+	width: 387px;
+	height: 86px;
+  }
+
+  #linkbannertoemblem:hover{
+	position:relative;
+	top:3px;
+	left:3px;
+  }
+  .fb-share-button {
+	margin:10px;
+  }
 }
+
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;

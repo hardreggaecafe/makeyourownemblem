@@ -123,6 +123,8 @@ GEM
       nokogiri (~> 1.4)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
+    meta-tags (2.0.0)
+      actionpack (>= 3.0.0)
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
@@ -256,6 +258,8 @@ GEM
     sexp_processor (4.6.0)
     sinatra (1.0)
       rack (>= 1.0)
+    sitemap_generator (5.1.0)
+      builder
     slop (3.6.0)
     spring (1.4.0)
     sprockets (3.3.4)
@@ -315,6 +319,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  meta-tags
   minimum-omniauth-scaffold
   newrelic_rpm
   pg
@@ -329,6 +334,7 @@ DEPENDENCIES
   rvm
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sitemap_generator
   spring
   sqlite3
   tapp

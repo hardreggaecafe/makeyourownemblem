@@ -1,0 +1,22 @@
+-if request.original_url.index("/showemblem/")
+  - imageurl = cl_image_path(@filename, :transformation => { :effect => "ordered_dither:14", :width => 200, :height => 200, :crop => :thumb, :radius => 20}, :overlay=>"text:Coustard_200_bold:" + @initial, :flags=>:cutter)
+-else
+  - imageurl = asset_url "makeyourownemblem.png"
+
+:ruby
+  opg = {
+    title: 'Make Your Own Emblem',
+    type: 'article',
+    url: @link,
+    image: imageurl,
+    site_name: "Make Your Own Emblem",
+    description: "This App Make Your Emblem. You might be able to submit this instead of existing candidate for 2020!!",
+    locale: 'ja_JP'
+  }
+
+- set_meta_tags :open_graph => opg
+= display_meta_tags
+
+<meta property="fb:admins" content="618693892" />
+<meta property="fb:app_id" content="1659344774309585" />
+

@@ -5,7 +5,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = render partial: '/layouts/header'
   %body{ 'data-no-turbolink' => true }
+
+    = yield
 
     - if signed_in?
       = render partial: '/layouts/user_icon', locals: { user: current_user, size: "60x60", klass: "margin_minus2" }
@@ -17,17 +20,16 @@
       = link_to 'Facebook', '/auth/facebook'
 
 
-    = yield
+    - if signed_in?
+      %a{:href => '/showemblem/' + current_user.id.to_s}
+        #linkbannertoemblem
+    - else
+      #instruction
 
     = simple_format(flash[:notice], style: "color: green;") if flash[:notice].present?
     = simple_format(flash[:alert], style: "color: red;")    if flash[:alert].present?
     %br/
     %br/
-
-    - if signed_in?
-      - filename = "e" + current_user.id.to_s + ".jpg"
-      - initial = current_user.name[0].downcase + "1"
-      = cl_image_tag(filename, :transformation => { :effect => "ordered_dither:14", :width => 200, :height => 200, :crop => :thumb, :radius => 20}, :overlay => initial, :opacity => 80 )
 
     %center
       Developed by
